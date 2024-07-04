@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Pertanyaan</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: url('3.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            animation: fadeIn 1.5s;
+            width: 80%;
+            max-width: 500px;
+            border: 2px solid black;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 18px;
+            border: 2px solid black; /* Tambahkan border persegi */
+            padding: 10px; /* Padding untuk ruang antara border dan teks */
+            display: inline-block; /* Membuat teks hanya menempati lebar yang diperlukan */
+            overflow: hidden; /* Sembunyikan teks yang belum muncul */
+            white-space: normal; /* Izinkan teks membungkus */
+            word-wrap: break-word; /* Memastikan teks tidak meluap dari kontainer */
+            overflow-wrap: break-word; /* Memastikan teks tidak meluap dari kontainer */
+        }
+
+        .animation-container {
+            width: 100%;
+            height: 200px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .animation {
+            width: 150px;
+            height: 150px;
+            background: url('Capoo\ Cat.gif') no-repeat center center;
+            background-size: contain;
+            border: 5px solid black;
+            border-radius: 50%;
+        }
+
+        button {
+            padding: 15px 20px;
+            border: none;
+            border-radius: 10px;
+            background: black;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            margin: 5px;
+            transition: transform 0.3s ease-in-out;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
+        }
+
+        audio {
+            width: 10%;
+            max-width: 200px;
+            margin: 10px auto;
+            display: block;
+            border-radius: 50%;
+        }
+
+        audio::-webkit-media-controls-panel {
+            background-color: black;
+            border-radius: 15px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
+
+        }
+
+        audio::-webkit-media-controls-play-button,
+        audio::-webkit-media-controls-pause-button,
+        audio::-webkit-media-controls-volume-slider {
+            filter: invert(1);
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+        footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 14px;
+            }
+
+            .animation {
+                width: 80px;
+                height: 80px;
+                padding: 15px 20px;
+            }
+
+            button {
+                padding: 8px 15px;
+                font-size: 12px;
+            }
+
+            audio {
+            width: 15%;
+            max-width: 200px;
+            margin: 10px auto;
+            display: block;
+            border-radius: 50%;
+        }
+        p{
+            font-size: 14px;
+        }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="animation-container">
+        <div class="animation"></div>
+    </div>
+    <audio id="myAudio" autoplay>
+        <source src="Y2meta.app - Stephanie Poetri - I Love You 3000 (Official Music Video) (128 kbps).mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <div><h1 id="greeting"></h1></div>
+    <button onclick="goToMessagePage()">Lanjut</button>
+    <footer>
+        <p>Dibuat oleh <strong>Muhamad Fasly</strong> | <a href="https://www.websiteanda.com">Instagram</a></p>
+    </footer>
+</div>
+
+
+<script>
+    // Fungsi untuk mengetik teks satu per satu
+    function typeText(element, text, speed) {
+        let i = 0;
+        function type() {
+            if (i < text.length) {
+                element.textContent += text.charAt(i);
+                i++;
+                setTimeout(type, speed);
+            }
+        }
+        type();
+    }
+
+    // Fungsi untuk mengarahkan ke halaman message.html setelah audio selesai
+    document.getElementById('myAudio').addEventListener('ended', function() {
+        goToMessagePage();
+    });
+
+    function goToMessagePage() {
+        window.location.href = 'message.html';
+    }
+
+    // Fungsi untuk menampilkan nama pengguna yang disimpan di localStorage
+    document.addEventListener('DOMContentLoaded', function() {
+        const userName = localStorage.getItem('userName');
+        const greetingElement = document.getElementById('greeting');
+        const message = userName ? 'Mengirim cinta dan pikiran positif untuk sahabatku. Selalu ingat, aku mendukungmu!' : 'Mengirim cinta dan pikiran positif untuk sahabatku. Selalu ingat, aku mendukungmu!';
+        typeText(greetingElement, message, 100); // Kecepatan mengetik 100 ms
+    });
+</script>
+
+</body>
+</html>

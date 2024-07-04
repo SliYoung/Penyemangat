@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masukkan Nama Anda</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: url('3.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            animation: fadeIn 1.5s;
+            width: 80%;
+            max-width: 500px;
+            border: 2px solid black;
+        }
+        
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        input[type="text"] {
+            width: 75%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: black;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+        footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #666;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+
+            input[type="text"] {
+            width: 70%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+
+            h1 {
+                font-size: 14px;
+            }
+
+            .animation {
+                width: 80px;
+                height: 80px;
+                 padding: 15px 20px;
+            }
+
+            button {
+                padding: 8px 15px;
+                font-size: 12px;
+            }
+            audio {
+            width: 15%;
+            max-width: 200px;
+            margin: 10px auto;
+            display: block;
+            border-radius: 50%;
+        }
+        footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #666;
+        }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Masukkan Nama Anda</h1>
+    <input type="text" id="nameInput" placeholder="Nama Anda">
+   <div> <button onclick="saveName()">Lanjut</button></div>
+    <footer>
+        <p>Notice:<strong>Ini Bukan Web Yang Membahayakan Atau Pishing,Santai Klik Lanjut Aja Dulu!!</strong></p>
+    </footer>
+</div>
+
+<script>
+    function saveName() {
+        const name = document.getElementById('nameInput').value;
+        if (name) {
+            localStorage.setItem('userName', name);
+            window.location.href = 'Halaman1.html';
+        } else {
+            alert('Silakan masukkan nama Anda.');
+        }
+    }
+</script>
+
+</body>
+</html>

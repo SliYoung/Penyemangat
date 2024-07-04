@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kirim Pesan Semangat</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: url('3.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            animation: fadeIn 1.5s;
+            width: 80%;
+            max-width: 500px;
+            border: 2px solid black;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+
+        .animation-container {
+            width: 100%;
+            height: 200px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .animation {
+            width: 150px;
+            height: 150px;
+            background: url('gifs\ fofos.gif') no-repeat center center;
+            background-size: contain;
+            border: 5px solid black;
+            border-radius: 50%;
+        }
+
+        textarea {
+            width: 80%;
+            height: 100px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            padding: 15px;
+            font-size: 16px;
+            outline: none;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        textarea:focus {
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+        }
+
+        button {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            background: black;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 5px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+        footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            textarea {
+            width: 80%;
+            height: 50px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            padding: 20px;
+            font-size: 15px;
+            outline: none;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+
+            h1 {
+                font-size: 14px;
+            }
+
+            .animation {
+                width: 80px;
+                height: 80px;
+                padding: 15px 20px;
+            }
+
+            button {
+                padding: 8px 15px;
+                font-size: 12px;
+            }
+            footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #666;
+        }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="animation-container">
+        <div class="animation"></div>
+    </div>
+    <audio id="myAudio"autoplay>
+        <source src="Y2meta.app - Stephanie Poetri - I Love You 3000 (Official Music Video) (128 kbps).mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <h1>Kirim Pesan Apapun Untukku😘</h1>
+    <form id="messageForm">
+        <textarea id="message" placeholder="Ketik Disini.."></textarea>
+        <button type="button" onclick="sendMessage('whatsapp')">Kirim</button>
+    </form>
+    <footer>
+        <p>Dibuat oleh <strong>Muhamad Fasly</strong> | <a href=https://www.instagram.com/whoiisfasly_>Instagram</a></p>
+    </footer>
+</div>
+
+<script>
+    function sendMessage(platform) {
+        const message = document.getElementById('message').value;
+        if (!message) {
+            alert('Silakan tulis pesan terlebih dahulu!');
+            return;
+        }
+
+        let url = '';
+        if (platform === 'whatsapp') {
+            url = `https://wa.me/6281277407483?text=${encodeURIComponent(message)}`;
+        } 
+
+        window.open(url, '_blank');
+    }
+</script>
+
+</body>
+</html>
